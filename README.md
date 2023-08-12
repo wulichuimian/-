@@ -1,1 +1,2 @@
-#数据库名称是manage
+数据库名称是manage
+server是node创建的服务器
