@@ -1,0 +1,29 @@
+<script>
+    // var a=b=1;
+    /* var a = b;
+    b = 1
+    console.log(a, b); */
+</script>
+<!-- <script>
+    var b = a = { n: 1 }
+    /* a={ n: 1 }
+    b = a; */
+    /* a = { n: 1 };
+    b = { n: 1 } */
+
+    console.log(b == a);
+</script> -->
+<script>
+    /* let arr = [10.1,'123','abc','1px',NaN,0x16,'0014','1.123',0o77]
+    let res = arr.filter(parseInt);
+    console.log(res); */
+</script>
+<script>
+    let that;
+    function Fn(){
+        that = this
+    }
+    console.log(that == new Fn());
+    let a = new Fn();
+    console.log(that == a);
+</script>

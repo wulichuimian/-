@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/layui@2.6.8/dist/layui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/maoboli.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: url(./img/preview.jpg) no-repeat;
+            background-size: 100%;
+        }
+
+        .box {
+            padding: 0 20vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box>* {
+            color: white;
+            margin: 0 5vw;
+            width: 10vw;
+            height: 10vw;
+        }
+
+        /* main{
+            margin: 0;
+            padding: 0;
+        } */
+        main section {
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 10vw;
+        }
+
+        .exit {
+            text-align: center;
+            line-height: 10vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <main>
+            <section>
+                管理员列表
+            </section>
+        </main>
+        <main>
+            <section>
+                添加管理员
+            </section>
+        </main>
+        <main>
+            <section>
+                删除管理员
+            </section>
+        </main>
+        <main>
+            <section>
+                图书列表
+            </section>
+        </main>
+        <main>
+            <section>
+                添加书籍
+            </section>
+        </main>
+        <main>
+            <section>
+                删除书籍
+            </section>
+        </main>
+        <main>
+            <section>
+                还书
+            </section>
+        </main>
+        <main>
+            <section>
+                借书
+            </section>
+        </main>
+        <main>
+            <section class="exit">
+                退出登录
+            </section>
+        </main>
+    </div>
+    <script>
+        if (!localStorage.getItem('token')) {
+            alert('请先登录');
+            location.href = './login.html';
+        } else {
+            let section = document.querySelectorAll('section');
+            let box = document.querySelector('.box');
+            box.onclick = (e) => {
+                if (e.target.innerHTML.trim() == '删除书籍') {
+                    console.log(123);
+                }
+                if (e.target.innerHTML.trim() == '图书列表') {
+                    location.href = './books/booksList.html'
+                }
+                if (e.target.innerHTML.trim() == '管理员列表') {
+                    location.href = './user/userList.html'
+                }
+                if (e.target.innerHTML.trim() == '添加管理员') {
+                    location.href = './user/addUser.html'
+                }
+                if (e.target.innerHTML.trim() == '删除管理员') {
+                    location.href = './user/deleteUser.html'
+                }
+                if (e.target.innerHTML.trim() == '添加书籍') {
+                    location.href = './books/addBook.html'
+                }
+                if (e.target.innerHTML.trim() == '删除书籍') {
+                    location.href = './books/deleteBook.html'
+                }
+                if (e.target.innerHTML.trim() == '借书') {
+                    location.href = './books/borrowBook.html'
+                }
+                if (e.target.innerHTML.trim() == '还书') {
+                    location.href = './books/returnBook.html'
+                }
+                if (e.target.innerHTML.trim() == '退出登录') {
+                    localStorage.removeItem('token');
+                    alert("退出成功");
+                    location.href = './login.html'
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
